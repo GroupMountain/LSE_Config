@@ -24,6 +24,7 @@ declare class JsonConfig {
 
     /**
      * 获取配置文件的全部内容
+     * @returns 配置的全部内容
      */
     getData(): object;
 
@@ -31,6 +32,7 @@ declare class JsonConfig {
      * 获取配置的某个键
      * @param key 需要获取的配置的键
      * @param defultValue （可选参数）默认值，如果该配置不存在，则使用默认值并自动添加此键
+     * @returns 配置的值
      */
     get(key: string, defultValue?: object): any;
 
@@ -65,6 +67,7 @@ declare class JsonLanguage extends JsonConfig {
      * @param key 需要翻译的语言的键
      * @param data 需要翻译的参数  
      * 参数会按顺序依次替换语言中的 {1} {2} {3} ...
+     * @returns 翻译后的语言
      */
     translate(key: string, data?: any[]): string;
 }
@@ -115,6 +118,7 @@ declare class JsonI18n {
      * 参数会按顺序依次替换语言中的 {1} {2} {3} ...
      * @param langCode （可选参数）语言标识符
      * 不填此项则使用默认语言
+     * @returns 翻译后的语言
      */
     translate(key: string, data?: string[], langCode?: string): string;
 }

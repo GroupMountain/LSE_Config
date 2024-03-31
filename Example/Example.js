@@ -1,7 +1,8 @@
-
-
-
 const { JsonConfig, JsonI18n } = require("./Example/lib/config");
+
+
+
+
 
 let defaultConfig = {
     "test1": 114514,
