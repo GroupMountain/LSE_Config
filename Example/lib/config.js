@@ -8,10 +8,13 @@ class JsonConfig {
     init() {
         if (File.exists(this.mPath)) {
             let existDataStr = File.readFrom(this.mPath);
-            existDataStr.replace(/\/\/.*|\/\*[^]*?\*\//g, '');
+            existDataStr = existDataStr.replace(/\/\/.*|\/\*[^]*?\*\//g, "");
             try {
                 this.mData = Object.assign({}, this.mData, JSON.parse(existDataStr));
-            } catch { }
+            } catch {
+                let newPath = this.mPath + "_old";
+                File.rename(this.mPath, newPath);
+            }
         }
         this.save();
     }
